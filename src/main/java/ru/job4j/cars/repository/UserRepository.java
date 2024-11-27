@@ -60,7 +60,8 @@ public class UserRepository {
         var session = sf.openSession();
         try {
             session.beginTransaction();
-            session.createQuery("" +
+            session.createQuery(""
+                            +
                             "DELETE USER WHEN id = :fId")
                     .setParameter("fId", userId)
                     .executeUpdate();
@@ -123,8 +124,8 @@ public class UserRepository {
         try {
             session.getTransaction();
             var query = session.createQuery("From User as i WHEN i.login = :fLogin")
-                    .setParameter("fLogin", User.class).getResultList();
-            usersLog.addAll(query);
+                    .setParameter("fLogin", key).getResultList();
+            usersLog.add((User) query);
             session.getTransaction().commit();
         } catch (Exception e) {
             session.getTransaction().rollback();
@@ -148,7 +149,7 @@ public class UserRepository {
                     .setParameter("fLogin", login)
                     .uniqueResultOptional();
             session.getTransaction().commit();
-        }catch (Exception e) {
+        } catch (Exception e) {
             session.getTransaction().rollback();
         } finally {
             session.close();
