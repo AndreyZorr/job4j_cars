@@ -28,6 +28,6 @@ public class Post {
     private User user;
 
     @OneToMany
-    @JoinColumn(name = "post_id")
+    @JoinColumn(name = "auto_post_id")
     private List<PriceHistory> messengers = new ArrayList<>();
 }

@@ -10,10 +10,9 @@ public class UserUsage {
     public static void main(String[] args) {
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .configure().build();
-        try (SessionFactory sf = new MetadataSources(registry)
-                .buildMetadata().buildSessionFactory()) {
+        try (SessionFactory sf = new MetadataSources(registry).buildMetadata().buildSessionFactory()) {
             var userRepository = new UserRepository(new CrudRepository(sf));
-            var user = new User(1, "log", "password");
+            var user = new User(1, "log", "password","@Php");
             user.setLogin("admin");
             user.setPassword("admin");
             userRepository.create(user);
