@@ -28,6 +28,14 @@ public class Post {
     private User user;
 
     @OneToMany
-    @JoinColumn(name = "auto_post_id")
+    @JoinColumn(name = "post_id")
     private List<PriceHistory> messengers = new ArrayList<>();
+
+    @OneToOne
+    @JoinColumn(name = "brand_id")
+    private Brand brand;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "foto_id", foreignKey = @ForeignKey(name = "FOTO_ID_FK"))
+    private List<Foto> foto = new ArrayList<>();
 }

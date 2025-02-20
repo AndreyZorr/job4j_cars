@@ -22,17 +22,19 @@ public class CarRepository {
     }
 
     public void delete(int carId) {
-        crudRepository.run("Delete From CAR Where id = :fId",
+        crudRepository.run(
+                "Delete From CAR Where id = :fId",
                 Map.of("fId", carId));
     }
 
     public List<Car> findAllOrderById() {
-        return crudRepository.query("From Car order by id asc",
+        return crudRepository.query(
+                "From Car order by id asc",
                 Car.class);
     }
 
     public Optional<Car> findById(int carId) {
-        return crudRepository.optional("From Car Where id - :fId",
+        return crudRepository.optional("From Car Where id :fId",
                 Car.class,
                 Map.of("fId", carId)
         );
