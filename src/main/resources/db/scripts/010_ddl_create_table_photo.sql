@@ -1,3 +1,3 @@
-create table foto (
+create table photo (
 id serial primary key
 );

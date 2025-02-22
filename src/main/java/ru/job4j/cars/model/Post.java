@@ -37,5 +37,5 @@ public class Post {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "foto_id", foreignKey = @ForeignKey(name = "FOTO_ID_FK"))
-    private List<Foto> foto = new ArrayList<>();
+    private List<Photo> foto = new ArrayList<>();
 }

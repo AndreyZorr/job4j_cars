@@ -20,10 +20,10 @@ public class PostRepository {
         );
     }
 
-    private List<Post> findPostAllFoto(int fotoId) {
-        return crudRepository.query("From Post Where foto_id :fId",
-                Post.class,
-                Map.of("fId", fotoId)
+    private List<Post> findPostAllPhoto() {
+        return crudRepository.query("Select distinct p from Post p" +
+                        "Join p.photo Where size(p.photo) > 0",
+                Post.class
         );
     }
 

@@ -9,9 +9,9 @@ import javax.persistence.*;
 @Data
 @Entity
 @AllArgsConstructor
-@Table(name = "foto")
+@Table(name = "photo")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Foto {
+public class Photo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
