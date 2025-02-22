@@ -21,8 +21,10 @@ public class PostRepository {
     }
 
     private List<Post> findPostAllPhoto() {
-        return crudRepository.query("Select distinct p from Post p" +
-                        "Join p.photo Where size(p.photo) > 0",
+        return crudRepository.query("""
+                        Select distinct p
+                        from Post p Join p.photo
+                        Where size(p.photo) > 0""",
                 Post.class
         );
     }
